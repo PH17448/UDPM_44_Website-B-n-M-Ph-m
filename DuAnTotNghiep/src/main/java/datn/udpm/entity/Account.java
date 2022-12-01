@@ -48,11 +48,9 @@ public class Account implements Serializable {
 	@Column(name="fullname")
 	private String fullname ;
 	
-	
-	
 	@Column(name="createDate")
 	@Temporal(TemporalType.DATE)
-	private Date createDate ;
+	private Date createDate = new Date() ;
 	
 	@Column(name="phone")
 	private String phone ;

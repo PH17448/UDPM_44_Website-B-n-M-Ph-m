@@ -1,0 +1,27 @@
+
+<div xmlns:th="http://www.thymeleaf.org">
+	<div class="row" style="font-family: monospace;" >
+		<div class="col-md-12" >
+			<div class="card border border-0" >
+				<div class="card-header" style="font-weight: bold; color: #EC8CCD">
+					TIN TỨC NỔI BẬT</div>
+				<div class="row" >
+					<div class="col-md-3 p-1" th:each="items,state : ${listNew}">
+						<div class="card" style="width: 18rem; padding: 3px" >
+							<img
+								th:src="@{|/images/${items.sumary}|}"
+								class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">[[${items.title}]]</h5>
+								<p class="card-text">[[${items.content}]]</p>
+								<span class="fw-bold"> Ngày tạo : </span> <p class="text-secondary">[[${items.createDate}]]</p>
+								Tác giả : <p class="text-primary">[[${items.author}]]</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

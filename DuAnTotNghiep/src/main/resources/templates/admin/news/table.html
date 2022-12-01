@@ -1,0 +1,55 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<a class="btn btn-primary" th:href="@{/admin/news/create}">Tạo tin tức</a>
+					</div>
+					<div class="card-body">
+						<div class="col-md-12"
+					style="background-color: #EEECEC; font-family: monospace;">
+
+
+
+					<table class="table">
+						<thead>
+							<tr class="text-center">
+								<th>Mã tin tức</th>
+								<th>Tiêu đề</th>
+								<th>Hình ảnh</th>
+								<th>Nội dung</th>
+								<th>Ngày tạo</th>
+								<th>Tác giả</th>
+								<th colspan="2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="items,state:${list}">
+								<td>[[${items.id}]]</td>
+								<td>[[${items.title}]]</td>
+								<td> <img alt="" th:src="@{|/images/${items.sumary}|}" width="80px" height="90px"> </td>
+								<td>[[${items.content}]]</td>
+								<td>[[${items.createDate}]]</td>
+								<td>[[${items.author}]]</td>
+								<td> <a class="btn btn-secondary" th:href="@{|/admin/news/edit/${items.id}|}">Cập nhật</a> </td>
+								<td><a class="btn btn-danger" th:href="@{|/admin/news/delete/${items.id}|}">Xóa</a> </td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

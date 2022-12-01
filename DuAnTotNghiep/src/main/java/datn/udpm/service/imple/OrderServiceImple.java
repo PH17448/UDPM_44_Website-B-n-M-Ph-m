@@ -55,6 +55,11 @@ public class OrderServiceImple implements OrderService {
 		return orderRepo.save(result);
 	}
 
+	@Override
+	public List<Order> findAll() {
+		return orderRepo.findAll();
+	}
+
 	
 
 	

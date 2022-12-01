@@ -1,0 +1,59 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<form th:action="@{/admin/news/save}" th:object="${news}" method="post">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<label for="basic-url" class="form-label">Tiêu đề</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" id="basic-url" th:field="*{title}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<label for="basic-url" class="form-label">Nội dung</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" id="basic-url" th:field="*{content}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<label for="basic-url" class="form-label">Ngày tạo</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" disabled="disabled" id="basic-url" th:field="*{createDate}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<label for="basic-url" class="form-label">Tác giả</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" id="basic-url" th:field="*{author}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<label for="basic-url" class="form-label">Ảnh</label>
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="basic-url" th:field="*{sumary}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<button type="submit" class="btn btn-primary" >
+							Lưu
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</main>
+</body>
+
+</html>

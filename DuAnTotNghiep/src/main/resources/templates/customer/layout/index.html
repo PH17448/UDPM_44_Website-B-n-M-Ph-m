@@ -17,18 +17,18 @@
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-	type="text/javascript"
-	></script>
+	type="text/javascript"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
 	type="text/javascript"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
 	type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <style type="text/css">
@@ -156,79 +156,14 @@
 	</div>
 
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card border border-0">
-					<div class="card-header" style="font-weight: bold; color: #EC8CCD">
-						TIN TỨC NỔI BẬT</div>
-					<div class="row">
-						<div class="col-md-3">
-							<div class="card" style="width: 18rem; padding: 3px">
-								<img
-									src="https://nubeauty.com.vn/wp-content/uploads/2022/06/Collagen-Plus-Nu-Skin-chinh-hang-gia-bao-nhieu.jpg"
-									class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Giá Beauty Focus Collagen Plus
-										chính hãng bao nhiêu? Mua ở đâu...</h5>
-									<p class="card-text">Giá là điều khiến bạn phải lo lắng vì
-										chúng một phần nào đó quyết định về chất lượng sản phẩm. Chi
-										tiết giá Beauty Focus Collagen...</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="card" style="width: 18rem; padding: 3px">
-								<img
-									src="https://nubeauty.com.vn/wp-content/uploads/2022/04/Bao-ve-lan-da-cung-Collagen-Plus-Nu-Skin.jpg"
-									class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">3 công dụng của Beauty Focus
-										Collagen+ Nuskin</h5>
-									<p class="card-text">Sự khác biệt đến từ công dụng của
-										Beauty Focus Collagen+ là gì? Hiện nay, có rất nhiều người
-										trong chúng ta gặp phải tình trạng da...</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="card" style="width: 18rem; padding: 3px">
-								<img
-									src="https://nubeauty.com.vn/wp-content/uploads/2022/05/Collagen-Plus-Nuskin-co-thuc-su-tot-hay-khong-cung-Nubeauty-kiem-chung.jpg"
-									class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Review Beauty Focus Collagen Plus
-										có tốt không ? Nên mua ở...</h5>
-									<p class="card-text">Tìm hiểu và giải đáp sản phẩm Beauty
-										Focus Collagen Plus có tốt không? Giá trên thị trường như thế
-										nào? Nên mua ở đâu tốt nhất...</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="card" style="width: 18rem; padding: 3px">
-								<img
-									src="https://nubeauty.com.vn/wp-content/uploads/2022/05/Su-dung-inner-Focus-Collagen-Plus-cua-Nuskin-nhu-the-nao-cho-chuan.jpg"
-									class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Cách sử dụng Beauty Focus Collagen
-										Plus Nuskin và ai khôn...</h5>
-									<p class="card-text">Bài viết này sẽ hướng dẫn bạn chi tiết
-										về cách sử dụng Beauty Focus Collagen Plus đúng cách. Bao gồm
-										về liều lượng, đối tượn...</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div th:replace="@{/customer/layout/news.html}"></div>
 	</div>
 
 
 	<footer class="row pt-3">
-		<div class="col-md-12 bg-secondary">
+		<div class="col-md-12 bg-dark">
 			<div class="container">
-				<div class="row">
+				<div class="row" style=" font-family: monospace;">
 					<div class="col-md-1"></div>
 					<div class="col-md-4 fw-bold m-2 pt-3 text-light">
 						<p>
@@ -238,10 +173,11 @@
 						<p>Địa chỉ shop :Ngõ 28 Đại Linh -Trung Văn-Nam Từ Niêm-Hà Nội</p>
 						<p>ĐT : 0965221785-0435343423-Email :Duongnvph17448@fpt.edu.vn</p>
 					</div>
-					<div class="col-md-6 pt-3">
+					<div class="col-md-2"></div>
+					<div class="col-md-4 pt-3">
 						<img alt=""
 							src="https://nubeauty.com.vn/wp-content/uploads/2022/02/logo-bo-cong-thuong.png"
-							style="width: 170px; height: 100px">
+							style="width: 200px; height: 100px">
 						<p class="fw-bold text-light">Mã GN :GX24hcom</p>
 						<h2 style="color: white;">
 							Cosmetics <sup>Shop</sup>
@@ -251,9 +187,9 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center text-light">CÔNG TY TNHH
-						NUBEAUTY – GPDKKD: 0316485294 do sở KH & ĐT TP.HCM cấp lần đầu
-						ngày 15/09/2020 cấp lần 2 ngày 14/12/2021. Địa chỉ: 14/4/8 Đường
-						30, Phường 6, Quận Gò Vấp, TP.HCM. Copyright © by Nu Beauty – Sức
+						Cosmetic – GPDKKD: 0316485294 do sở KH & ĐT TP.HCM cấp lần đầu
+						ngày 15/09/2020 cấp lần 2 ngày 14/12/2021. Địa chỉ: Ngõ 28
+						Đại linh -Trung Văn -Nam Từ Niêm -HN. Copyright © by Cosmetic – Sức
 						Khoẻ Sắc Đẹp</div>
 				</div>
 			</div>
