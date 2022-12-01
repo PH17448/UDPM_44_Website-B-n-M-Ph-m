@@ -1,0 +1,87 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="row pt-2">
+			<div class="card">
+				<div class="card-header">
+					<div class="col-md-12 pb-1">
+						<div class="row">
+							<div class="col-md-3">
+								<a class="btn btn-outline-success" style="border-radius: 1px"
+									th:href="@{/admin/order/repoOrder}"
+								>Kho
+									lưu trữ đơn hàng</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12"
+					style="background-color: #EEECEC; font-family: monospace;">
+
+
+
+					<table class="table">
+						<thead>
+							<tr class="text-center">
+								<th>Mã đơn hàng</th>
+								<th>Người đặt hàng</th>
+								<th>Hình thức thanh toán</th>
+								<th>Địa chỉ</th>
+								<th>Ngày tạo</th>
+								<th>Số điện thoại</th>
+								<th>Trạng thái</th>
+								<th colspan="3">Thao tác</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr th:each="item : ${listOrder}">
+								<td>[[${item.id}]]</td>
+								<td>[[${item.accountOrder.fullname}]]</td>
+								<td>[[${item.payment.name}]]</td>
+								<td>[[${item.address}]]</td>
+								<td>[[${item.createDate}]]</td>
+								<td>[[${item.phone}]]</td>
+								<td>
+								 		<th:block th:if="${item.status == 0}">
+								 			<a class="btn btn-outline-primary"
+								 				th:href="@{|/admin/order/confirm/${item.id}|}"
+								 			>Xác nhận đơn hàng</a>
+								 		</th:block> 
+								 		<th:block th:if="${item.status == 1}">
+								 			<a class="btn btn-outline-info"
+								 			th:href="@{|/admin/order/delivery/${item.id}|}"
+								 			>Đang giao</a>
+								 		</th:block> 
+								 		<th:block th:if="${item.status == 2}">
+								 			<a class="btn btn-default border border-0 disabled" >Đã hủy</a>
+								 		</th:block> 
+								 		<th:block th:unless="${item.status == 0 OR item.status == 1 OR item.status == 2  }">
+								 			<a class="btn btn-outline-success border border-0 disabled">Đã giao thành công</a>
+								 		</th:block>
+								 </td>
+								<td> <th:block th:if="${item.status == 0}"><a class="btn btn-danger">Hủy</a></th:block> </td>
+								<td><a class="btn btn-default"
+									th:href="@{|/admin/order/detail/${item.id}|}"
+								>Chi tiết</a></td>
+								<td> 
+									<th:block th:if="${item.status == 3}"><a class="btn btn-primary"
+									th:href="@{|/admin/order/repoOrder/save/${item.id}|}"
+									 >Lưu</a></th:block>
+								 </td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

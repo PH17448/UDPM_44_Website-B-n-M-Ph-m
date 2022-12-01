@@ -44,8 +44,7 @@
 												<div class="modal-content">
 													<div class="modal-header">
 														<h4 class="modal-title" id="exampleModalLabel"
-															style="font-family: monospace;">Xác
-															nhận</h4>
+															style="font-family: monospace;">Xác nhận</h4>
 														<button type="button" class="btn-close"
 															data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
@@ -63,12 +62,15 @@
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									</th:block> <th:block th:if="*{status == 1}">
-										<p class="text-primary">Đang giao</p>
-									</th:block> </th:block> <th:block th:unless="*{status == 0 OR status == 1}">
-										<p class="text-success">Đã thanh toán</p>
+										<p class="text-primary">Đang giao hàng</p>
+									</th:block> <th:block th:if="*{status == 2}">
+										<p class="text-secondary">Đã hủy</p>
+									</th:block> </th:block> <th:block
+										th:unless="*{status == 0 OR status == 1 OR status ==2 }">
+										<p class="text-success">Đã giao thành công</p>
 									</th:block></th>
 							</tr>
 						</tbody>

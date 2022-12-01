@@ -24,7 +24,7 @@
 								<th>Ngày tạo</th>
 								<th>Số điện thoại</th>
 								<th>Trạng thái</th>
-								<th></th>
+								<th rowspan="1"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,22 +40,22 @@
 								<td><th:block th:if="${order.status == 0}">
 										<p class="text-danger">Chờ xác nhận</p>
 										<a class="btn btn-default btn-outline-danger"
-											data-bs-toggle="modal" data-bs-target="#exampleModal">Hủy
-											đơn hàng</a>
-										<div class="modal fade" id="exampleModal" tabindex="-1"
+											data-bs-toggle="modal" data-bs-target="#cancel">Hủy đơn
+											hàng</a>
+										<div class="modal fade" id="cancel" tabindex="-1"
 											aria-labelledby="exampleModalLabel" aria-hidden="true">
-											<div class="modal-dialog">
+											<div class="modal-dialog ">
 												<div class="modal-content">
 													<div class="modal-header">
 														<h4 class="modal-title" id="exampleModalLabel"
-															style="font-family: monospace;">Xác
-															nhận</h4>
+															style="font-family: monospace;">Xác nhận</h4>
 														<button type="button" class="btn-close"
 															data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
 													<div class="modal-body">
 														<h5 style="font-family: monospace;">
-															Bạn có muốn hủy <br> đơn hàng này không ?
+															Bạn có muốn hủy <br> đơn hàng [[${order.id}]] này
+															không ?
 														</h5>
 													</div>
 													<div class="modal-footer">
@@ -64,24 +64,21 @@
 														<a th:href="@{|/order/cancel/${order.id}|}" type="button"
 															class="btn btn-primary">Có</a>
 													</div>
-												</div>
+												</div>  
 											</div>
 										</div>
-
-
-
-
 									</th:block> <th:block th:if="${order.status == 1}">
 										<p class="text-primary">Đang giao hàng</p>
 									</th:block> <th:block th:if="${order.status == 2}">
 										<p class="text-secondary">Đã hủy</p>
 									</th:block> </th:block> <th:block
 										th:unless="${order.status == 0 OR order.status == 1 OR order.status == 2}">
-										<p class="text-success">Đã thanh toán</p>
+										<p class="text-success">Đã giao thành công</p>
 									</th:block>
 								</th>
 								</td>
-
+								<td><a class="btn btn-primary"
+									th:href="@{|/order/detail/${order.id}|}">Chi tiết</a></td>
 							</tr>
 						</tbody>
 

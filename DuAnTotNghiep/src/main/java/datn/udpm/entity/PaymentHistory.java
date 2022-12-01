@@ -30,15 +30,17 @@ public class PaymentHistory  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id ;
 	
-	@Column(name="payments")
-	private String payment ;
+	@ManyToOne
+	@JoinColumn(name="payment_id")
+	private Payment paymentHistory ;
+	
 	
 	@Column(name="total_money")
 	private Double totalMoney ;
 	
 	@Column(name="payment_date")
 	@Temporal(TemporalType.DATE)
-	private Date paymentDate ;
+	private Date paymentDate = new Date();
 	
 	@Column(name="status")
 	private Integer status ;

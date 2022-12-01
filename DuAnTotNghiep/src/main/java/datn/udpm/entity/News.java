@@ -9,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +24,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="news")
 public class News implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +44,9 @@ public class News implements Serializable {
 	private String content ;
 	
 	@Column(name="create_date")
-	private Date createDate ;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	private Date createDate = new Date();
 	
 	@Column(name="author")
 	private String author ;

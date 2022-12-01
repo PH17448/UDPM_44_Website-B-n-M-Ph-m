@@ -17,4 +17,14 @@ public class AccountServiceImple implements AccountService {
 		return accountRepo.findById(email).get();
 	}
 
+	@Override
+	public Account saveRegister(Account account) {
+		return accountRepo.save(account);
+	}
+
+	@Override
+	public Account save(Account result) {
+		return accountRepo.save(result);
+	}
+
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/customer/layout/index :: dynamic(~{::main})}">
+<body>
+	<main class="container-fluid p-3">
+		<div class="card" style="background-color: #EEECEC; font-family: monospace;">
+			<div class="card-header">
+				<h3>Quản lý tài khoản</h3>
+			</div>
+			<form th:action="@{|/account/update|}" method="post" th:object="${account}">
+			<div class="row">
+
+
+
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Email</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" disabled="disabled"
+									id="basic-url" th:field="*{email}"
+									aria-describedby="basic-addon3">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Mật khẩu</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{password}" aria-describedby="basic-addon3">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Họ tên</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{fullname}" aria-describedby="basic-addon3">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Số điện thoại</label>
+							
+							<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">+84</span>
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{phone}" aria-describedby="basic-addon3">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for="basic-url" class="form-label">Địa chỉ</label>
+							<div class="input-group">
+								<textarea class="form-control" id="basic-url"
+									th:field="*{address}" aria-label="With textarea"></textarea>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-6">
+							<img th:src="@{|/images/*{image}|}" width="200px" height="300px">
+						</div>
+
+						<div class="col-md-6">
+							<label for="inputGroupFile02">Hình ảnh</label>
+							<div class="input-group mb-3">
+								<input type="file" class="form-control" id="inputGroupFile02" th:field="*{image}"> 
+								<label class="input-group-text" for="inputGroupFile02">Upload</label>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-md-2">
+					<button type="submit" class="btn btn-outline-primary">Lưu</button>
+				</div>
+			</div>
+		</form>
+		</div>
+	</main>
+</body>
+</html>

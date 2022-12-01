@@ -52,10 +52,10 @@
 							<div>
 								<strong>Hình thức thanh toán:</strong>
 							</div>
-							<div class="form-check form-check-inline" ng-repeat="pt in payments">
-								<input class="form-check-input" type="radio" 
-									value="{{pt.id}}" ng-model="order.payment.id"
-									name="inlineRadioOptions" > 
+							<div class="form-check form-check-inline"
+								ng-repeat="pt in payments">
+								<input class="form-check-input" type="radio" value="{{pt.id}}"
+									ng-model="order.payment.id" name="inlineRadioOptions">
 								<label class="form-check-label" for="inlineRadio1">{{pt.name}}</label>
 							</div>
 						</div>

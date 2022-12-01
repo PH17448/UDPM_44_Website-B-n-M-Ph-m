@@ -1,0 +1,68 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main th:object="${order}">
+		<a th:href="@{/admin/order/list}" class="btn btn-outline-primary mt-2">Danh sách hóa đơn</a>
+		<div class="row">
+			<div class="col-md-12" style="font-family: monospace;">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Mã chi tiết sản phẩm</th>
+							<th>Tên sản phẩm</th>
+							<th>Đơn giá</th>
+							<th>Số lượng</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr th:each="item,state:*{orderDetails}">
+							<td>[[${state.index}]]</td>
+							<td>[[${item.id}]]</td>
+							<td>[[${item.product.name}]]</td>
+							<td>[[${item.price}]]</td>
+							<td>[[${item.quantity}]]</td>
+						</tr>
+					</tbody>
+					<tfoot class="text-end">
+						<h4>
+							<strong>Người đặt</strong> : [[*{accountOrder.fullname}]]
+						</h4>
+						<p>
+							<strong>Hình thức thanh toán</strong> : [[*{payment.name}]]
+						</p>
+						<p>
+							<strong>Địa chỉ nhận hàng</strong> : [[*{address}]]
+						</p>
+						<p>
+							<strong>Điện thoại liên lạc</strong> : [[*{phone}]]
+						</p>
+						<p>
+							<strong>Trạng thái</strong> :
+							
+							
+							<div><th:block th:if="*{status == 0}">
+								<p class="text-primary">Chưa xác nhận</p>
+							</th:block>
+							<th:block th:if="*{status == 1}">
+								<p class="text-info">Đang giao</p>
+							</th:block>
+							<th:block th:if="*{status == 2}">
+								<p class="text-danger">Đã hủy</p>
+							</th:block>
+							<th:block
+								th:unless="*{status == 0 OR status == 1 OR status == 2  }">
+								<p class="text-success">Đã giao thành công</p>
+							</th:block></div>
+						</p>
+						
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -34,4 +34,8 @@ public class Payment  implements Serializable{
 	@OneToMany(mappedBy = "payment")
 	@JsonIgnore
 	private List<Order> orders ;	
+	
+	@OneToMany(mappedBy = "paymentHistory")
+	@JsonIgnore
+	private List<PaymentHistory> paymentHistories ;
 }
