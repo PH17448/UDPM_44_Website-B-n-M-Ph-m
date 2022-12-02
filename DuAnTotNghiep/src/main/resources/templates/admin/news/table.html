@@ -39,7 +39,35 @@
 								<td>[[${items.createDate}]]</td>
 								<td>[[${items.author}]]</td>
 								<td> <a class="btn btn-secondary" th:href="@{|/admin/news/edit/${items.id}|}">Cập nhật</a> </td>
-								<td><a class="btn btn-danger" th:href="@{|/admin/news/delete/${items.id}|}">Xóa</a> </td>
+								<td><a class="btn btn-danger" data-bs-toggle="modal"
+									th:attr="data-bs-target='#delete'+${items.id}"
+								 >Xóa</a> 
+									<div class="modal fade" th:attr="id='delete'+${items.id}" tabindex="-1"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog ">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h4 class="modal-title" id="exampleModalLabel"
+																style="font-family: monospace;">Xác nhận</h4>
+															<button type="button" class="btn-close"
+																data-bs-dismiss="modal" aria-label="Close"></button>
+														</div>
+														<div class="modal-body">
+															<h5 style="font-family: monospace;">
+																Bạn có muốn xóa <br> tin tức <strong>[[${items.id}]]</strong> này
+																không ?
+															</h5>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-bs-dismiss="modal">Không</button>
+															<a th:href="@{|/admin/news/delete/${items.id}|}" type="button"
+																class="btn btn-primary">Có</a>
+														</div>
+													</div>
+												</div>
+											</div>
+								</td>
 							</tr>
 						</tbody>
 

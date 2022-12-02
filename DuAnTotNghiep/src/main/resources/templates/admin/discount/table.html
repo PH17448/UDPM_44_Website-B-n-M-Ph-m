@@ -1,0 +1,91 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<a class="btn btn-primary" th:href="@{/admin/discount/create}">Tạo
+							mã giảm giá</a>
+					</div>
+					<div class="card-body">
+						<div class="col-md-12"
+							style="background-color: #EEECEC; font-family: monospace;">
+
+
+
+							<table class="table">
+								<thead>
+									<tr class="text-center">
+										<th>#</th>
+										<th>Mã giảm giá</th>
+										<th>Name</th>
+										<th>Code</th>
+										<th>Số lượng</th>
+										<th>Ngày áp dụng</th>
+										<th>Ngày hết hạn</th>
+										<th>Phần trăm</th>
+										<th>Ngày tạo</th>
+										<th colspan="2">Thao tác</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="items,state : ${listDiscount}">
+										<td>[[${state.index}]]</td>
+										<td>[[${items.id}]]</td>
+										<td>[[${items.name}]]</td>
+										<td>[[${items.code}]]</td>
+										<td>[[${items.quantity}]]</td>
+										<td>[[${items.applyDay}]]</td>
+										<td>[[${items.expiration}]]</td>
+										<td>[[${items.moneyLimit}]]</td>
+										<td>[[${items.createDay}]]</td>
+										<td><a class="btn btn-secondary"
+											th:href="@{|/admin/discount/edit/${items.id}|}">Cập nhật</a>
+										</td>
+										<td><a class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#delete'+${items.id}"
+											>Xóa</a>
+											<div class="modal fade" th:attr="id='delete'+${items.id}" tabindex="-1"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog ">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h4 class="modal-title" id="exampleModalLabel"
+																style="font-family: monospace;">Xác nhận</h4>
+															<button type="button" class="btn-close"
+																data-bs-dismiss="modal" aria-label="Close"></button>
+														</div>
+														<div class="modal-body">
+															<h5 style="font-family: monospace;">
+																Bạn có muốn xóa <br> mã giảm giá <strong>[[${items.code}]]</strong> này
+																không ?
+															</h5>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-bs-dismiss="modal">Không</button>
+															<a th:href="@{|/admin/discount/delete/${items.id}|}" type="button"
+																class="btn btn-primary">Có</a>
+														</div>
+													</div>
+												</div>
+											</div></td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+
+</html>

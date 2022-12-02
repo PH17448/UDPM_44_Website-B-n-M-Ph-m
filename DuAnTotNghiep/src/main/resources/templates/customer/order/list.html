@@ -40,9 +40,9 @@
 								<td><th:block th:if="${order.status == 0}">
 										<p class="text-danger">Chờ xác nhận</p>
 										<a class="btn btn-default btn-outline-danger"
-											data-bs-toggle="modal" data-bs-target="#cancel">Hủy đơn
+											data-bs-toggle="modal" th:attr="data-bs-target='#cancel'+${order.id}" >Hủy đơn
 											hàng</a>
-										<div class="modal fade" id="cancel" tabindex="-1"
+										<div class="modal fade" th:attr="id='cancel'+${order.id}" tabindex="-1"
 											aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog ">
 												<div class="modal-content">
@@ -54,7 +54,8 @@
 													</div>
 													<div class="modal-body">
 														<h5 style="font-family: monospace;">
-															Bạn có muốn hủy <br> đơn hàng [[${order.id}]] này
+															Bạn có muốn hủy  đơn hàng có mã [[${order.id}]] <br> ,
+															giao đến [[${order.address}]] <br>, số điện thoại :[[${order.phone}]]
 															không ?
 														</h5>
 													</div>
