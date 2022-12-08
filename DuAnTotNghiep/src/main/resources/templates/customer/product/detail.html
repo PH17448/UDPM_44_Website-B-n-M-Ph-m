@@ -40,10 +40,10 @@
 								Tình trạng : 
 							</div>
 							<div class="col-md-8">
-								<th:block th:if="${item.available == 1}">
+								<th:block th:if="${item.available == 1 OR item.quantity > 0}">
 									<p class="text-success fw-bold">Còn hàng</p>
 								</th:block>
-								<th:block th:unless="${item.available == 1}" class="text-danger">
+								<th:block th:unless="${item.available == 1 OR item.quantity > 0}" class="text-danger">
 									<p class="text-danger fw-bold">Hết hàng</p>
 								</th:block>
 							</div>
@@ -64,9 +64,11 @@
 						</div>
 						<div class="row pt-3">
 							<div class="col-md-12">
-								<button class="btn btn-danger" th:attr="ng-click=@{|cart.add(${item.id})|}"> 
+								<a class="btn btn-danger" th:attr="ng-click=@{|cart.add(${item.id})|}"
+								th:href="@{|/product/updateQuantity/${item.id}|}"
+								> 
 								Thêm vào giỏ hàng
-								</button>
+								</a>
 							</div>
 						</div>
 					</div>

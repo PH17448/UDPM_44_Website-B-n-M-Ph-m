@@ -6,4 +6,6 @@ public interface OrderDetailService {
 
 	OrderDetail findById(Integer id);
 
+	OrderDetail findByOrderId(Integer id);
+
 }

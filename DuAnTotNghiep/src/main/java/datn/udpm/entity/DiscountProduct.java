@@ -37,8 +37,10 @@ public class DiscountProduct implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id ;
 	
+	
 	@Column(name="name")
 	private String name ;
+	
 	
 	@Column(name="code")
 	private String code ;

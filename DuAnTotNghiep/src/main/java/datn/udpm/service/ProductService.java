@@ -12,6 +12,8 @@ public interface ProductService {
 	List<Product> findBySubCategoryId(Integer cid);
 
 	Product findById(Integer id);
+
+	Product save(Product product);
 	
 
 }

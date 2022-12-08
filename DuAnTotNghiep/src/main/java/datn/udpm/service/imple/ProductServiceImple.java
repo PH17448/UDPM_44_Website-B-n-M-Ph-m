@@ -32,5 +32,10 @@ public class ProductServiceImple implements ProductService {
 		return productRepo.findById(id).get();
 	}
 
+	@Override
+	public Product save(Product product) {
+		return productRepo.save(product);
+	}
+
 
 }

@@ -12,39 +12,45 @@
 	<main class="row">
 		<section id="gallery">
 			<div class="container-fluid">
-				<div class="row pt-5">
+				<div class="row pt-5" >
 					<div class="card col-md-3 p-2 border border-0"
-						 th:each="items: ${listProduct}">
-
-						<div class="card-header">
-							<div class="container">
+						th:each="items: ${listProduct}">
+						<div class="container">
+							<div class="card-header">
+								<a class="text" th:href="@{|/product/detail/${items.id}|}">
 								<img th:src="@{|/images/${items.picture1}}|" alt="Avatar"
 									class="image" style="width: 100%">
 								<div class="middle">
-									<a class="text" th:href="@{|/product/detail/${items.id}|}">Chi tiết</a>
+									
 								</div>
+								</a>
 							</div>
-						</div>
-
+						
 
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12 fw-bold" style="color: gray; height: 70px">
 									[[${items.name}]]</div>
 							</div>
-							<h5 style="text-decoration: line-through;">[[${items.price+items.price*items.discount.moneyLimit/100}]]
-								VND</h5>
-
-							<h4 class="text-danger">[[${items.price}]] VND</h4>
-
-							<div class="card-footer">
-								<a th:attr="ng-click=@{|cart.add(${items.id})|}"
-								class="btn btn-outline-danger btn-lg">Thêm vào giỏ hàng</a>
+							<div class="row">
+								<div class="col-md-6">
+									<strong style="text-decoration: line-through;">[[${items.price+items.price*items.discount.moneyLimit/100}]]
+								VND</strong>
+								</div>
+								<div class="col-md-6">
+									<strong class="text-danger">[[${items.price}]] VND</strong>
+								</div>
 							</div>
+							
 						</div>
+						</div>
+						<div class="card-footer">
+								<a th:href="@{|/product/detail/${items.id}|}"
+									class="btn btn-outline-success btn-sm">Chi tiết</a>
+							</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</section>
 	</main>
