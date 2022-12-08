@@ -17,4 +17,9 @@ public class OrderDetailServiceImple implements OrderDetailService {
 		return orderDetailRespository.findById(id).get();
 	}
 
+	@Override
+	public OrderDetail findByOrderId(Integer id) {
+		return orderDetailRespository.findByOrderId(id);
+	}
+
 }

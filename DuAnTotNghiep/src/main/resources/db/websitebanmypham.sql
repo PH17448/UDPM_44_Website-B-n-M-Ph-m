@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2022 lúc 03:59 PM
+-- Thời gian đã tạo: Th12 08, 2022 lúc 06:03 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.4.27
 
@@ -47,7 +47,7 @@ INSERT INTO `accounts` (`username`, `role_id`, `password`, `fullname`, `email`, 
 (NULL, NULL, NULL, NULL, '', '2022-11-25', '', 'user.jpg', ''),
 (NULL, NULL, '123456', 'Nguyễn Văn Đương', 'cangohvt@gmail.com', '2022-11-23', '0965221785', NULL, 'Thôn Công An - xã Hoàng Văn Thụ - huyện Chương Mỹ-Hà Nội'),
 (NULL, 'CUS', '123456', 'Nguyễn Văn Đương', 'cangohvt1@gmail.com', '2022-11-23', '0965221785', NULL, 'Thôn Công An - xã Hoàng Văn Thụ - huyện Chương Mỹ-Hà Nội'),
-('duongnv', 'CUS', '123456', 'Nguyễn Văn Đương', 'duongnvph17448@fpt.edu.vn', '2022-11-02', '0965221785', 'em.jpg', 'Thôn Công An-Hoàng Văn Thụ-Chương Mỹ-Hà Nội'),
+('duongnv', 'CUS', '123456', 'Nguyễn Văn Đương', 'duongnvph17448@fpt.edu.vn', '2022-11-02', '0965221786', 'em.jpg', 'Thôn Công An-Hoàng Văn Thụ-Chương Mỹ-Hà Nội'),
 ('minhbn', 'ADMIN', '123456', 'Bùi Ngọc Minh', 'minhbn@gmail.com', '2022-11-02', '0965221785', 'em.jpg', 'Thôn Công An-Xã Hoàng Văn Thụ - Chương Mỹ-Hà Nội');
 
 -- --------------------------------------------------------
@@ -151,7 +151,7 @@ CREATE TABLE `discount_product` (
 --
 
 INSERT INTO `discount_product` (`id`, `name`, `code`, `quantity`, `apply_day`, `expiration`, `money_limit`, `create_day`) VALUES
-(1, 'Giảm 20%', 'vHUJ24HJt', 1, '2022-11-10 22:04:32.000000', '2022-11-18 22:04:32.000000', '20', '2022-11-02');
+(4, 'Giảm giá 20%', 'hsdfsdf534gf', 2, '2022-12-02 00:00:00.000000', '2022-12-03 00:00:00.000000', '30', '2022-12-02');
 
 -- --------------------------------------------------------
 
@@ -199,6 +199,16 @@ CREATE TABLE `news` (
   `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `sumary`, `content`, `create_date`, `author`) VALUES
+(1, 'Giá Beauty Focus Collagen Plus chính hãng bao nhiêu? Mua ở đâu...', 'tieude1.jpg', 'Giá là điều khiến bạn phải lo lắng vì chúng một phần nào đó quyết định về chất lượng sản phẩm. Chi tiết giá Beauty Focus Collagen...', '2022-11-30', 'Nguyễn Văn Đương'),
+(2, '3 công dụng của Beauty Focus Collagen+ Nuskin', 'tieude2.jpg', 'Sự khác biệt đến từ công dụng của Beauty Focus Collagen+ là gì? Hiện nay, có rất nhiều người trong chúng ta gặp phải tình trạng da...', '2022-11-30', 'Nguyễn Văn Đương'),
+(3, 'Review Beauty Focus Collagen Plus có tốt không ? Nên mua ở...', 'tieude3.jpg', 'Tìm hiểu và giải đáp sản phẩm Beauty Focus Collagen Plus có tốt không? Giá trên thị trường như thế nào? Nên mua ở đâu tốt nhất...', '2022-11-30', 'Nguyễn Văn Đương'),
+(8, 'Tiêu đề này koong có gì cả chỉ có jdsfsdfsdfsdfasdsdgsf', 'tieude4.jpg', 'Bạn biết rì chưa , nếu chưa biết thì là do bạn ngu đâý và bạn biết bạn ngu do đâu chưa ', '2022-11-30', 'Nobita');
+
 -- --------------------------------------------------------
 
 --
@@ -208,7 +218,7 @@ CREATE TABLE `news` (
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `account_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `voucher_id` int(11) DEFAULT NULL,
+  `voucher_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `payment_id` int(11) DEFAULT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `create_date` datetime(6) NOT NULL,
@@ -221,17 +231,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `account_id`, `voucher_id`, `payment_id`, `address`, `create_date`, `phone`, `status`) VALUES
-(8, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'Thôn Công An', '2022-11-21 00:00:00.000000', '0987654312', 4),
-(14, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'Thôn Công An', '2022-11-21 00:00:00.000000', '0987654321', 3),
-(15, 'duongnvph17448@fpt.edu.vn', NULL, 2, 'abc', '2022-11-21 00:00:00.000000', '0987654322', 2),
-(16, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'Trần Văn Hiên', '2022-11-21 00:00:00.000000', '0965221785', 2),
-(17, 'minhbn@gmail.com', NULL, 1, 'Tỉnh Hòa Bình', '2022-11-21 00:00:00.000000', '0987654321', 2),
-(18, 'minhbn@gmail.com', NULL, 2, 'Thon Dai Linh', '2022-11-22 00:00:00.000000', '0987654321', 1),
-(19, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'Thôn Công An', '2022-11-23 00:00:00.000000', '0965221785', 3),
-(20, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'Ngõ 28', '2022-11-23 00:00:00.000000', '098765432', 2),
-(21, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'bcfgsdgsf', '2022-11-23 00:00:00.000000', '0987654', 1),
-(22, 'duongnvph17448@fpt.edu.vn', NULL, 2, 'Ngõ 28 Đại Linh - Trung Văn', '2022-11-24 00:00:00.000000', '0987654321', 2),
-(23, 'duongnvph17448@fpt.edu.vn', NULL, 1, 'aaaaaa-aaaaaaa', '2022-11-28 00:00:00.000000', '0987654321', 0);
+(31, 'duongnvph17448@fpt.edu.vn', 'hDP2423Av', 1, 'Thôn Công An -Xã Hoàng Văn Thụ - Chương Mỹ- Hà Nội', '2022-12-07 00:00:00.000000', '0965221785', 0),
+(35, 'duongnvph17448@fpt.edu.vn', '', 1, 'Thôn Công An', '2022-12-07 00:00:00.000000', '0965221786', 0);
 
 -- --------------------------------------------------------
 
@@ -252,58 +253,10 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`id`, `product_id`, `order_id`, `price`, `quantity`) VALUES
-(1, 1, 1, 149000, 2),
-(2, 2, 2, 150000, 5),
-(3, 9, 2, 80000, 1),
-(4, 8, 2, 110000, 1),
-(5, 2, 3, 150000, 1),
-(6, 9, 3, 80000, 1),
-(7, 8, 3, 110000, 2),
-(8, 3, 4, 72000, 1),
-(9, 7, 4, 110000, 5),
-(10, 5, 4, 60000, 1),
-(11, 2, 5, 150000, 1),
-(12, 4, 5, 45000, 2),
-(13, 5, 5, 60000, 2),
-(14, 2, 6, 150000, 2),
-(15, 8, 6, 110000, 2),
-(16, 9, 6, 80000, 1),
-(17, 4, 6, 45000, 1),
-(18, 6, 6, 70000, 5),
-(19, 7, 6, 110000, 1),
-(20, 2, 7, 150000, 5),
-(21, 8, 8, 110000, 5),
-(22, 2, 8, 150000, 1),
-(23, 5, 8, 60000, 1),
-(24, 6, 8, 70000, 1),
-(25, 7, 8, 110000, 1),
-(26, 3, 8, 72000, 3),
-(27, 2, 12, 150000, 2),
-(28, 2, 13, 150000, 1),
-(29, 8, 14, 110000, 2),
-(30, 2, 15, 150000, 1),
-(31, 2, 16, 150000, 1),
-(32, 8, 16, 110000, 1),
-(33, 5, 16, 60000, 1),
-(34, 4, 16, 45000, 1),
-(35, 7, 16, 110000, 1),
-(36, 2, 17, 150000, 5),
-(37, 9, 17, 80000, 4),
-(38, 8, 17, 110000, 3),
-(39, 7, 17, 110000, 2),
-(40, 6, 17, 70000, 3),
-(41, 4, 17, 45000, 3),
-(42, 5, 17, 60000, 3),
-(43, 2, 18, 150000, 3),
-(44, 2, 19, 150000, 2),
-(45, 2, 20, 150000, 6),
-(46, 9, 20, 80000, 1),
-(47, 8, 20, 110000, 1),
-(48, 2, 21, 150000, 3),
-(49, 2, 22, 150000, 1),
-(50, 9, 22, 80000, 3),
-(51, 8, 22, 110000, 1),
-(52, 2, 23, 150000, 4);
+(62, 2, 31, 150000, 3),
+(63, 9, 31, 80000, 1),
+(64, 8, 31, 110000, 1),
+(67, 2, 35, 150000, 1);
 
 -- --------------------------------------------------------
 
@@ -344,7 +297,9 @@ CREATE TABLE `payment_history` (
 --
 
 INSERT INTO `payment_history` (`id`, `order_id`, `payment_id`, `total_money`, `payment_date`, `status`) VALUES
-(10, 8, 1, 216000, '2022-11-28', b'00000000001');
+(15, 8, 1, 1156000, '2022-11-29', b'00000000001'),
+(16, 14, 1, 220000, '2022-11-29', b'00000000001'),
+(17, 27, 1, 160000, '2022-12-04', b'00000000001');
 
 -- --------------------------------------------------------
 
@@ -374,15 +329,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `sup_id`, `supcategory_id`, `discount_id`, `name`, `price`, `description`, `picture1`, `picture2`, `create_date`, `available`, `expire_date`, `quantity`, `quantity_sold`) VALUES
-(1, 1, 2, 1, 'Dầu gội đầu khô batiste chính hãng nhập khẩu Anh Quốc', 149000, 'Với đặc thù là một loại son Lipstick, son OnColour Cream Lipstick của Oriflame được làm với thành phần chủ yếu là sáp và dầu khoáng. Giúp môi được dưỡng ẩm và không làm môi bị khô.\r\n\r\nBên cạnh đó với phức hợp Cream Comfort trong sản phẩm. Giúp cho bạn có ', 'daugoidau.jpg', 'daugoidau2.jpg', '2022-11-02 22:30:48.000000', b'00000000001', '2023-11-15 22:30:48.000000', 98, 2),
-(2, 1, 2, 1, 'Dầu gôi ngăn dụng tóc Oriflame HairX Advanced Care', 150000, 'Gội phát khô đầu luôn', 'daugoidaunganrungtoc.jpg', 'daugoimilk.jpg', '2022-11-02 22:33:58.000000', b'00000000001', '2023-11-17 22:33:58.000000', 96, 4),
-(3, 1, 5, 1, 'Sáp dưỡng ẩm Vaseline phục hồi da khô , nứt nẻ', 72000, 'Sáp dưỡng ẩm Vaseline là một sản phẩm quá đỗi quen thuộc trong các gia đình. Được xem là kem dưỡng ẩm số 1 tại Mỹ, với một lượng tiêu thụ lớn. Giúp làm mềm các vết sừng, chai sạn trên bề mặt da khắp các cơ thể như môi, tay, chân,… Chống việc bong tróc, nứ', 'sap-duong-moi-vasaline.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 47, 3),
-(4, 1, 5, 1, 'Son dưỡng môi dạng thỏi Vaseline mềm mịn,giảm nứt nẻ, đa dạng mùi hương', 45000, 'Nếu môi bạn thường xuyên gặp tình trạng khô, nứt nẻ, thì son dưỡng môi Vaseline đích thị là một sản phẩm lý tưởng cho bạn đấy. Vừa có chức năng như son dưỡng vừa có thể sử dụng như một công cụ trang điểm. Giúp bảo vệ môi và giúp son lên màu chuẩn hơn.', 'son-duong-moi-vaseline.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
-(5, 1, 5, 1, 'Sáp dưỡng môi Vasaline chống khô môi, nứt nẻ dạng hủ 7g', 60000, 'Sáp dưỡng môi Vaseline là một sản phẩm cứu tinh có cánh cho những bạn có đôi môi thường xuyên khô ráp, nứt nẻ. Cho bạn một đôi môi mềm mại và mượt mà. Hơn hết, bạn có thể dùng cho tất cả các vùng da trên cơ thể. Sản phẩm vô cùng tiện ích mà bất cứ cô gái ', 'sapduongamvaseline.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
-(6, 1, 5, 1, 'Son dưỡng môi A-Z Lip Balm SPF 25 Oriflame', 70000, 'Nếu bạn đang tìm kiếm một loại son dưỡng làm mềm mịn môi thì son dưỡng môi A-Z Lip Balm SPF 25 Oriflame chính là sản phẩm bạn đang tìm đến. Thành phần từ nguồn thực vật sẽ liên tục nuôi dưỡng và làm dịu làn môi của bạn.', 'son-duong-moi-a-z-lip-balm-spf-25-oriflame.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
-(7, 1, 5, 1, 'Son dưỡng Tender Care Protecting Balm Tinh dầu hạt quả lựu Oriflame 34042', 110000, 'Sản phẩm mới nhất từ son dưỡng Tender Care là Tender Care Protecting Balm Organic Pomegranate Seed Oil 34042 đang được rất nhiều chị em ưa chuộng', 'son-duong-tender.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
-(8, 1, 5, 1, 'Son dưỡng OnColour Colour Boost Lip Balm 38764 Oriflame', 110000, 'Dạng son dưỡng có màu, giúp nuôi dưỡng làn môi của bạn trong tươi tắn, rạng rỡ với màu son vô cùng tự nhiên. \r\nCông thức son dưỡng môi Oncolour chứa thành phần tinh dầu mầm Lúa Mì và Vitamin E giúp nuôi dưỡng đôi môi căng mọng và đi kèm với hương thơm trá', 'son-duong-oncolour-colour-boost-lip-balm.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
-(9, 1, 5, 1, 'Son OnColour Cream Lipstick Oriflame', 80000, 'Với đặc thù là một loại son Lipstick, son OnColour Cream Lipstick của Oriflame được làm với thành phần chủ yếu là sáp và dầu khoáng. Giúp môi được dưỡng ẩm và không làm môi bị khô.\r\n\r\nBên cạnh đó với phức hợp Cream Comfort trong sản phẩm. Giúp cho bạn có ', 'son-oncolour-cream-lipstick-oriflame.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3);
+(1, 1, 2, 4, 'Dầu gội đầu khô batiste chính hãng nhập khẩu Anh Quốc', 149000, 'Với đặc thù là một loại son Lipstick, son OnColour Cream Lipstick của Oriflame được làm với thành phần chủ yếu là sáp và dầu khoáng. Giúp môi được dưỡng ẩm và không làm môi bị khô.\r\n\r\nBên cạnh đó với phức hợp Cream Comfort trong sản phẩm. Giúp cho bạn có ', 'daugoidau.jpg', 'daugoidau2.jpg', '2022-11-02 22:30:48.000000', b'00000000001', '2023-11-15 22:30:48.000000', 98, 2),
+(2, 1, 2, 4, 'Dầu gôi ngăn dụng tóc Oriflame HairX Advanced Care', 150000, 'Gội phát khô đầu luôn', 'daugoidaunganrungtoc.jpg', 'daugoimilk.jpg', '2022-11-02 00:00:00.000000', b'00000000000', '2023-11-17 22:33:58.000000', 66, 4),
+(3, 1, 5, 4, 'Sáp dưỡng ẩm Vaseline phục hồi da khô , nứt nẻ', 72000, 'Sáp dưỡng ẩm Vaseline là một sản phẩm quá đỗi quen thuộc trong các gia đình. Được xem là kem dưỡng ẩm số 1 tại Mỹ, với một lượng tiêu thụ lớn. Giúp làm mềm các vết sừng, chai sạn trên bề mặt da khắp các cơ thể như môi, tay, chân,… Chống việc bong tróc, nứ', 'sap-duong-moi-vasaline.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 47, 3),
+(4, 1, 5, 4, 'Son dưỡng môi dạng thỏi Vaseline mềm mịn,giảm nứt nẻ, đa dạng mùi hương', 45000, 'Nếu môi bạn thường xuyên gặp tình trạng khô, nứt nẻ, thì son dưỡng môi Vaseline đích thị là một sản phẩm lý tưởng cho bạn đấy. Vừa có chức năng như son dưỡng vừa có thể sử dụng như một công cụ trang điểm. Giúp bảo vệ môi và giúp son lên màu chuẩn hơn.', 'son-duong-moi-vaseline.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
+(5, 1, 5, 4, 'Sáp dưỡng môi Vasaline chống khô môi, nứt nẻ dạng hủ 7g', 60000, 'Sáp dưỡng môi Vaseline là một sản phẩm cứu tinh có cánh cho những bạn có đôi môi thường xuyên khô ráp, nứt nẻ. Cho bạn một đôi môi mềm mại và mượt mà. Hơn hết, bạn có thể dùng cho tất cả các vùng da trên cơ thể. Sản phẩm vô cùng tiện ích mà bất cứ cô gái ', 'sapduongamvaseline.jpg', '', '2022-11-09 00:00:00.000000', b'00000000001', '2023-11-25 09:58:38.000000', 61, 3),
+(6, 1, 5, 4, 'Son dưỡng môi A-Z Lip Balm SPF 25 Oriflame', 70000, 'Nếu bạn đang tìm kiếm một loại son dưỡng làm mềm mịn môi thì son dưỡng môi A-Z Lip Balm SPF 25 Oriflame chính là sản phẩm bạn đang tìm đến. Thành phần từ nguồn thực vật sẽ liên tục nuôi dưỡng và làm dịu làn môi của bạn.', 'son-duong-moi-a-z-lip-balm-spf-25-oriflame.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
+(7, 1, 5, 4, 'Son dưỡng Tender Care Protecting Balm Tinh dầu hạt quả lựu Oriflame 34042', 110000, 'Sản phẩm mới nhất từ son dưỡng Tender Care là Tender Care Protecting Balm Organic Pomegranate Seed Oil 34042 đang được rất nhiều chị em ưa chuộng', 'son-duong-tender.jpg', '', '2022-11-09 09:58:38.000000', b'00000000001', '2023-11-25 09:58:38.000000', 57, 3),
+(8, 1, 5, 4, 'Son dưỡng OnColour Colour Boost Lip Balm 38764 Oriflame', 110000, 'Dạng son dưỡng có màu, giúp nuôi dưỡng làn môi của bạn trong tươi tắn, rạng rỡ với màu son vô cùng tự nhiên. \r\nCông thức son dưỡng môi Oncolour chứa thành phần tinh dầu mầm Lúa Mì và Vitamin E giúp nuôi dưỡng đôi môi căng mọng và đi kèm với hương thơm trá', 'son-duong-oncolour-colour-boost-lip-balm.jpg', '', '2022-11-09 00:00:00.000000', b'00000000001', '2023-11-25 09:58:38.000000', 55, 3),
+(9, 1, 5, 4, 'Son OnColour Cream Lipstick Oriflame', 80000, 'Với đặc thù là một loại son Lipstick, son OnColour Cream Lipstick của Oriflame được làm với thành phần chủ yếu là sáp và dầu khoáng. Giúp môi được dưỡng ẩm và không làm môi bị khô.\r\n\r\nBên cạnh đó với phức hợp Cream Comfort trong sản phẩm. Giúp cho bạn có ', 'son-oncolour-cream-lipstick-oriflame.jpg', '', '2022-11-09 00:00:00.000000', b'00000000001', '2023-11-25 09:58:38.000000', 54, 3);
 
 -- --------------------------------------------------------
 
@@ -478,7 +433,6 @@ INSERT INTO `suppliers` (`id`, `name`, `company_name`, `logo`, `web_url`, `produ
 --
 
 CREATE TABLE `voucher` (
-  `id` int(11) NOT NULL,
   `discount` float NOT NULL,
   `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `voucher_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -491,8 +445,9 @@ CREATE TABLE `voucher` (
 -- Đang đổ dữ liệu cho bảng `voucher`
 --
 
-INSERT INTO `voucher` (`id`, `discount`, `code`, `voucher_name`, `create_date`, `from_time`, `to_time`) VALUES
-(1, 30000, 'hDP2423Av', 'Mua sản phẩm đầu', '2022-11-02 21:47:15.000000', '2022-11-03 21:47:15.000000', '2022-11-17 21:47:15.000000');
+INSERT INTO `voucher` (`discount`, `code`, `voucher_name`, `create_date`, `from_time`, `to_time`) VALUES
+(0, ' ', 'không', '2022-12-07 23:22:43.000000', '2022-12-07 23:22:43.000000', '2022-12-07 23:22:43.000000'),
+(30000, 'hDP2423Av', 'Mua sản phẩm đầu', '2022-11-02 21:47:15.000000', '2022-11-03 21:47:15.000000', '2022-11-17 21:47:15.000000');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -604,7 +559,7 @@ ALTER TABLE `suppliers`
 -- Chỉ mục cho bảng `voucher`
 --
 ALTER TABLE `voucher`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`code`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -638,7 +593,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT cho bảng `discount_product`
 --
 ALTER TABLE `discount_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `favourite`
@@ -656,19 +611,19 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT cho bảng `payment`
@@ -680,7 +635,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT cho bảng `payment_history`
 --
 ALTER TABLE `payment_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
@@ -698,12 +653,6 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `voucher`
---
-ALTER TABLE `voucher`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 

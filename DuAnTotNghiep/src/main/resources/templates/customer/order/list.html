@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/customer/layout/index :: dynamic(~{::main})}">
 <body>
-
 	<main>
-
 		<div class="row p-3">
 			<div class="col-md-12">
 				<div class="card"
@@ -12,7 +10,6 @@
 					<div class="card-header">
 						<h3>Lịch sử mua hàng</h3>
 					</div>
-
 					<table class="table">
 						<thead>
 							<tr>
@@ -20,6 +17,7 @@
 								<th>Mã đơn hàng</th>
 								<th>Người đặt hàng</th>
 								<th>Hình thức thanh toán</th>
+								<th>Mã giảm giá</th>
 								<th>Địa chỉ</th>
 								<th>Ngày tạo</th>
 								<th>Số điện thoại</th>
@@ -34,6 +32,10 @@
 								<td>[[${order.id}]]</td>
 								<td>[[${order.accountOrder.fullname}]]</td>
 								<td>[[${order.payment.name}]]</td>
+								<td>
+									<th:block th:if="${order.voucher.code == ''}"><span class="text-danger">Không có</span></th:block>
+									<th:block th:if="${order.voucher.code != null}"><span class="text-success">[[${order.voucher.code}]]</span></th:block>
+								</td>
 								<td>[[${order.address}]]</td>
 								<td>[[${order.createDate}]]</td>
 								<td>[[${order.phone}]]</td>

@@ -24,14 +24,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="voucher")
 public class Voucher  implements Serializable{
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id ;
+	
 	
 	@Column(name="discount")
 	private Double discount ;
 	
+	@Id
 	@Column(name="code")
 	private String code ;
 	

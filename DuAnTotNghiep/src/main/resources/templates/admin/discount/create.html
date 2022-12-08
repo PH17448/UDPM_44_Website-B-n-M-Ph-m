@@ -6,60 +6,61 @@
 		<div class="row" style="height: 150px">
 			<div class="col-md-12"></div>
 		</div>
-		<form th:action="@{/admin/discount/save}" th:object="${discount}" method="post">
+		<form th:action="@{/admin/discount/save}" th:object="${discount}"
+			method="post">
 			<div class="row">
 				<div class="col-md-4 pb-3">
-					<a class="btn btn-primary" th:href="@{/admin/discount}">Bảng mã giảm giá</a>
+					<a class="btn btn-primary" th:href="@{/admin/discount}">Bảng mã
+						giảm giá</a>
 				</div>
 				<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-6">
-								<label for="basic-url" class="form-label">Tên mã giảm
-									giá</label>
-								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="basic-url" th:field="*{name}"
-										aria-describedby="basic-addon3">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<label for="basic-url" class="form-label">Code</label>
-								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="basic-url" th:field="*{code}"
-										aria-describedby="basic-addon3">
-								</div>
-							</div>
-							</div>
 					<div class="row">
-							<div class="col-md-6">
-								<label for="basic-url" class="form-label">Số lượng</label> 
-								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="basic-url" th:field="*{quantity}"
-										aria-describedby="basic-addon3">
-								</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Tên mã giảm giá</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{name}" aria-describedby="basic-addon3">
 							</div>
-							<div class="col-md-6">
-								<label for="basic-url" class="form-label">Ngày áp dụng</label>
-								<div class="input-group mb-3">
-									<input type="datetime-local" class="form-control" id="basic-url" th:field="*{applyDay}"
-										aria-describedby="basic-addon3">
-								</div>
+						</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Code</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{code}" aria-describedby="basic-addon3">
 							</div>
+						</div>
 					</div>
 					<div class="row">
-							<div class="col-md-6">
-								<label for="basic-url" class="form-label">Ngày hết hạn</label>
-								<div class="input-group mb-3">
-									<input type="datetime-local" class="form-control" id="basic-url" th:field="*{expiration}"
-										aria-describedby="basic-addon3">
-								</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Số lượng</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{quantity}" aria-describedby="basic-addon3">
 							</div>
-							<div class="col-md-6">
-								<label for="basic-url" class="form-label">Phần trăm</label>
-								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="basic-url" th:field="*{moneyLimit}"
-										aria-describedby="basic-addon3">
-								</div>
+						</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Ngày áp dụng</label>
+							<div class="input-group mb-3">
+								<input type="datetime-local" class="form-control" id="basic-url"
+									th:field="*{applyDay}" aria-describedby="basic-addon3">
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Ngày hết hạn</label>
+							<div class="input-group mb-3">
+								<input type="datetime-local" class="form-control" id="basic-url"
+									th:field="*{expiration}" aria-describedby="basic-addon3">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="basic-url" class="form-label">Phần trăm</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="basic-url"
+									th:field="*{moneyLimit}" aria-describedby="basic-addon3">
+							</div>
+						</div>
 					</div>
 
 					<div class="col-md-2">
