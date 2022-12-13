@@ -63,7 +63,7 @@ public class Product  implements Serializable{
 	@Column(name="available")
 	private Boolean available ;
 	
-	@JsonFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Column(name="expire_date")
 	private Date expireDate ;
 	

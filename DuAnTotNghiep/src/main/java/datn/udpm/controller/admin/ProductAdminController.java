@@ -44,7 +44,7 @@ public class ProductAdminController {
 	}
 	@GetMapping("admin/product/{page}")
 	public String getPage( Model model, @PathVariable("page") int currentPage) {
-		Page<Product> page = proService.findPage(currentPage, 4);
+		Page<Product> page = proService.findPage(currentPage, 5);
 		
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("totalPage", page.getTotalPages());
@@ -85,8 +85,11 @@ public class ProductAdminController {
 	@PostMapping("/admin/product/update/{id}")
 	public String update(@PathVariable("id") Integer id ,@ModelAttribute("product") Product product) {
 		
-		product = proService.findById(id);
-		
+		Product pro = proService.findById(id);
+		product.setSubCategory(pro.getSubCategory());
+		product.setSupplier(pro.getSupplier());
+		product.setDiscount(pro.getDiscount());
+		product.setCreateDate(new Date());
 		proService.save(product);
 		
 		return "redirect:/admin/product";
@@ -99,4 +102,11 @@ public class ProductAdminController {
 		
 		return "redirect:/admin/product";
 	}
+	
+//	@GetMapping("/admin/product/promotion")
+//	public String promo(Model model, @ModelAttribute("product") Product product) {
+//		List<Product> pro = proService.findAll();
+//
+//		return "admin/product/promotion";
+//	}
 }
