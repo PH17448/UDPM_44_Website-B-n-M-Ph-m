@@ -36,6 +36,7 @@ public class ProductServiceImple implements ProductService {
 	@Override
 	public Product save(Product product) {
 		return productRepo.save(product);
+
 		
 	}
 
@@ -49,5 +50,9 @@ public class ProductServiceImple implements ProductService {
 		Pageable pageable = PageRequest.of(page, size);
 		return productRepo.findAll(pageable);
 	}
+
+	}
+
+
 
 }

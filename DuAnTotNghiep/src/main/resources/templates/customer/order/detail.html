@@ -1,6 +1,13 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/customer/layout/index :: dynamic(~{::main})}">
+	
+	<style>
+		.text-primary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}
+	</style>
 <body>
 
 	<main th:object="${order}">
@@ -19,6 +26,7 @@
 								<th>#</th>
 								<th>Người đặt hàng</th>
 								<th>Hình thức thanh toán</th>
+								<th>Mã giảm giá</th>
 								<th>Địa chỉ</th>
 								<th>Ngày tạo</th>
 								<th>Số điện thoại</th>
@@ -30,16 +38,22 @@
 								<th>[[*{id}]]</th>
 								<th>[[*{accountOrder.fullname}]]</th>
 								<th>[[*{payment.name}]]</th>
+								<th><th:block th:if="*{voucher.code == ''}">
+										<span class="text-danger">Không có</span>
+									</th:block> <th:block th:if="*{voucher.code != null}">
+										<span class="text-success">[[*{voucher.code}]]</span>
+									</th:block></th>
 								<th>[[*{address}]]</th>
 								<th>[[*{createDate}]]</th>
 								<th>[[*{phone}]]</th>
 								<th><th:block th:if="*{status == 0}">
 										<p class="text-danger">Chờ xác nhận</p>
 										<a class="btn btn-default btn-outline-danger"
-											data-bs-toggle="modal" th:attr="data-bs-target='#cancel'+*{id}">Hủy
-											đơn hàng</a>
-										<div class="modal fade" th:attr="id='cancel'+*{id}" tabindex="-1"
-											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											data-bs-toggle="modal"
+											th:attr="data-bs-target='#cancel'+*{id}">Hủy đơn hàng</a>
+										<div class="modal fade" th:attr="id='cancel'+*{id}"
+											tabindex="-1" aria-labelledby="exampleModalLabel"
+											aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -50,8 +64,8 @@
 													</div>
 													<div class="modal-body">
 														<h5 style="font-family: monospace;">
-															Bạn có muốn hủy  đơn hàng có mã [[*{id} ]]<br> ,
-															giao đến [[*{address}]] <br>, số điện thoại :[[*{phone}]]
+															Bạn có muốn hủy đơn hàng có mã [[*{id} ]]<br> , giao
+															đến [[*{address}]] <br>, số điện thoại :[[*{phone}]]
 															không ?
 														</h5>
 													</div>
@@ -86,7 +100,17 @@
 				<div class="card border border-0"
 					style="background-color: #EEECEC; font-family: monospace;">
 					<div class="card-header">
-						<h4 style="font-weight: bold">Chi tiết đơn hàng</h4>
+						<div class="row">
+							<div class="col-md-7">
+								<h4 style="font-weight: bold">Chi tiết đơn hàng</h4>
+							</div>
+							<div class="col-md-5 ">
+								<span class="text-primary"> <strong>Tổng tiền :</strong> 
+									[[${#numbers.formatInteger(total,1)}]]VND -
+									[[${#numbers.formatInteger(discountVoucher,1)}]]VND =
+									[[${#numbers.formatInteger(moneyAfterVoucher,1)}]] VND</span>
+							</div>
+						</div>
 					</div>
 
 					<table class="table table-hover">

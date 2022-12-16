@@ -18,7 +18,9 @@ public interface ProductService {
 
 	Product save(Product product);
 
+
 	void delete(Product pro);
+
 	
 	Page<Product> findPage(int page, int size);
 

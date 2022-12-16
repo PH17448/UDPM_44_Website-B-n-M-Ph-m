@@ -80,6 +80,7 @@ app.controller("shopping-cart-ctrl",function ($scope,$http) {
         phone : "",
         accountOrder : {email: $("#username").text()},
         payment : {id: 0} ,
+        voucher :{code:$("#code").text()},
         status : 0 ,
         get orderDetails(){
             return $scope.cart.items.map(item => {
