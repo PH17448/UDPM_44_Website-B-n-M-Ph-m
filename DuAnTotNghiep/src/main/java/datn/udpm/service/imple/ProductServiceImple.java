@@ -37,5 +37,10 @@ public class ProductServiceImple implements ProductService {
 		return productRepo.save(product);
 	}
 
+	@Override
+	public Page<Product> findAll(Pageable pageable) {
+		return productRepo.findAll(pageable);
+	}
+
 
 }

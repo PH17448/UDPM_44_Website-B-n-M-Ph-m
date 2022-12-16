@@ -14,7 +14,7 @@
 			<div class="container-fluid">
 				<div class="row pt-5">
 					<div class="card col-md-3 p-2 border border-0"
-						th:each="items: ${listProduct.content}">
+						th:each="items: ${listProductCate}">
 						<div class="container">
 							<div class="card-header">
 								<a class="text" th:href="@{|/product/detail/${items.id}|}">
@@ -48,19 +48,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-6 offset-5">
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item"><a class="page-link" th:href="@{/product/list?p=0}">First</a></li>
-								<li class="page-item"><a class="page-link"  th:href="@{|/product/list?p=${listProduct.number-1}|}">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">[[${listProduct.number}]]</a></li>
-								<li class="page-item"><a class="page-link" th:href="@{|/product/list?p=${listProduct.number+1}|}">Next Page</a></li>
-								<li class="page-item"><a class="page-link" th:href="@{|/product/list?p=${listProduct.totalPages -1}|}">Last Page</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+				
 			</div>
 		</section>
 	</main>

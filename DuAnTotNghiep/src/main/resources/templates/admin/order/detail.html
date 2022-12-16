@@ -3,6 +3,9 @@
 	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
 <body>
 	<main th:object="${order}">
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
 		<a th:href="@{/admin/order/list}" class="btn btn-outline-primary mt-2">Danh sách hóa đơn</a>
 		<div class="row">
 			<div class="col-md-12" style="font-family: monospace;">
@@ -44,7 +47,7 @@
 							
 							
 							<div><th:block th:if="*{status == 0}">
-								<p class="text-primary">Chưa xác nhận</p>
+								<p class="text-primary"><a th:href="@{|/admin/order/confirm/*{id}|}"> Chưa xác nhận</a></p>
 							</th:block>
 							<th:block th:if="*{status == 1}">
 								<p class="text-info">Đang giao</p>

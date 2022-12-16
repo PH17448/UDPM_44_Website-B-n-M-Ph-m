@@ -1,29 +1,35 @@
+
+
+
 <div xmlns:th="http://www.thymeleaf.org">
 
-	<nav class="navbar navbar-collapse navbar-expand-lg navbar-dark mt-3"
-		style="background-color: #F5F1F0">
-		<a class="navbar-brand" href="#"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#main_nav" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="main_nav"
-			th:each="items: ${listCategory}">
 
-			<ul class="navbar-nav nav-pills">
-				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" style="color: black;" href="#">
-						[[${items.name}]] </a>
+	<div class="container">
+		<nav class="navbar navbar-collapse navbar-expand-lg navbar-dark mt-3"
+		style="background: #FFF"
+			>
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#main_nav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="main_nav"
+				th:each="items: ${listCategory}">
 
-					<ul class="dropdown-menu fade-down">
-						<li th:each="subItem :${items.subCategories}"><a
-							class="dropdown-item"
-							th:href="@{|/product/list?cid=${subItem.id}|}">[[${subItem.name}]]</a>
-						</li>
-					</ul></li>
-			</ul>
-		</div>
+				<ul class="navbar-nav nav-pills" > 
+					<li class="nav-item dropdown fw-bold" style="background: #FFF;
+					margin: 5px 5px 5px 5px ; padding:5px 5px 5px 5px ;text-decoration: underline; ">[[${items.name}]] 
+						<ul class="dropdown-menu fade-down">
+							<li th:each="subItem :${items.subCategories}"><a
+								class="dropdown-item"
+								th:href="@{|/product/list/category?cid=${subItem.id}|}">[[${subItem.name}]]</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 
-	</nav>
+		</nav>
+	</div>
 </div>

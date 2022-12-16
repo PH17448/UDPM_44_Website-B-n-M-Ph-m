@@ -1,9 +1,11 @@
 package datn.udpm.controller.customer;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,19 +23,14 @@ public class ProductController {
 	ProductService productService ;
 	
 	@RequestMapping("/product/list")
-	public String list(Model model , @RequestParam("cid") Optional<Integer> cid) {
-		
-		if (cid.isPresent()) {
-			List<Product> list = productService.findBySubCategoryId(cid.get());
-			model.addAttribute("listProduct",list);
-		}else {	
-			List<Product> list = productService.findAll();
-			list.sort((o1,o2) -> o1.getName().compareTo(o2.getName()));
-			model.addAttribute("listProduct",list);
-		}
-		
+	public String list(Model model , @RequestParam("p") Optional<Integer> p ) {
+			Pageable pageable = PageRequest.of(p.orElse(0), 4);
+			Page<Product> page = productService.findAll(pageable);
+			model.addAttribute("listProduct",page);
 		return "customer/product/list";
 	}
+	
+	
 	
 	@RequestMapping("/product/detail/{id}")
 	public String detail(Model model,@PathVariable("id")Integer id) {
