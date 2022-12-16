@@ -1,0 +1,101 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<a class="btn btn-primary" th:href="@{/admin/supplier/create}">Thêm mới cung cấp</a>
+					</div>
+					<div class="card-body">
+						<div class="col-md-12"
+							style="background-color: #EEECEC; font-family: monospace;">
+
+
+
+							<table class="table">
+								<thead>
+									<tr class="text-center">
+										<th>#</th>
+										<th>Mã Cung cấp</th>
+										<th>Tên sản phẩm</th>
+										<th>Tên công ty</th>
+										<th>Logo</th>
+										<th>Web URL</th>
+										<th>Loại sản phẩm</th>
+										<th>Người liên lạc</th>
+										<th>Address 1</th>
+										<th>Address 2</th>
+										<th>Thành phố</th>
+										<th>Đất nước</th>
+										<th>Postal code</th>
+										<th>Số ĐT</th>
+										<th>Email</th>
+										<th colspan="2">Thao tác</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="items,state : ${list}">
+										<td>[[${state.index}]]</td>
+										<td>[[${items.id}]]</td>
+										<td>[[${items.name}]]</td>
+										<td>[[${items.companyName}]]</td>
+										<td>[[${items.logo}]]</td>
+										<td>[[${items.webUrl}]]</td>
+										<td>[[${items.productType}]]</td>
+										<td>[[${items.personContact}]]</td>
+										<td>[[${items.address1}]]</td>
+										<td>[[${items.address2}]]</td>
+										<td>[[${items.city}]]</td>
+										<td>[[${items.country}]]</td>
+										<td>[[${items.postalCode}]]</td>
+										<td>[[${items.telephone}]]</td>
+										<td>[[${items.email}]]</td>
+										<td><a class="btn btn-secondary"
+											th:href="@{|/admin/supplier/edit/${items.id}|}">Cập nhật</a>
+										</td>
+										<td><a class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#delete'+${items.id}"
+											>Xóa</a>
+											<div class="modal fade" th:attr="id='delete'+${items.id}" tabindex="-1"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog ">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h4 class="modal-title" id="exampleModalLabel"
+																style="font-family: monospace;">Xác nhận</h4>
+															<button type="button" class="btn-close"
+																data-bs-dismiss="modal" aria-label="Close"></button>
+														</div>
+														<div class="modal-body">
+															<h5 style="font-family: monospace;">
+																Bạn có muốn xóa<br> cung cấp <strong>[[${items.name}]]</strong> này không?
+															</h5>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-bs-dismiss="modal">Không</button>
+															<a th:href="@{|/admin/supplier/delete/${items.id}|}" type="button"
+																class="btn btn-primary">Có</a>
+														</div>
+													</div>
+												</div>
+											</div></td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+
+</html>
