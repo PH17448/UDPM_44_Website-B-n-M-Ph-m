@@ -1,0 +1,131 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 100px">
+			<div class="col-md-12"></div>
+		</div>
+		<form th:action="@{/admin/supplier/update/{id}(id=${supplier.id})}" th:object="${supplier}" method="post">
+			<div class="row">
+				<div class="col-md-4 pb-3">
+					<a class="btn btn-primary" th:href="@{/admin/supplier}">Bảng nhà cung cấp</a>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+						<label for="basic-url" class="form-label">Tên sản phẩm</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" id="basic-url" th:field="*{name}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="basic-url" class="form-label">Tên công ty</label>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" id="basic-url" th:field="*{companyName}"
+								aria-describedby="basic-addon3">
+						</div>
+					</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Logo</label> 
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{Logo}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Web URL</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{webUrl}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Loại sản phẩm</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{productType}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Người liên lạc</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{personContact}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Address 1</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{address1}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Address 2</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{address2}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Thành phố</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{city}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Đất nước</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{country}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Postal Code</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{postalCode}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Số điện thoại</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="basic-url" th:field="*{telephone}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-6">
+								<label for="basic-url" class="form-label">Email</label>
+								<div class="input-group mb-3">
+									<input type="email" class="form-control" id="basic-url" th:field="*{email}"
+										aria-describedby="basic-addon3">
+								</div>
+							</div>
+					</div>
+
+					<div class="col-md-2">
+						<button type="submit" class="btn btn-primary">Lưu</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</main>
+</body>
+
+</html>
