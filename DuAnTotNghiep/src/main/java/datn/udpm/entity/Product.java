@@ -16,6 +16,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -52,13 +55,15 @@ public class Product  implements Serializable{
 	@Column(name="picture2")
 	private String picture2 ;
 	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	@Column(name="create_date")
-	private Date createDate ;
+	private Date createDate = new Date() ;
 	
 	@Column(name="available")
-	private Integer available ;
+	private Boolean available ;
 	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Column(name="expire_date")
 	private Date expireDate ;
 	

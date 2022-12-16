@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -35,12 +36,28 @@ public class ProductServiceImple implements ProductService {
 	@Override
 	public Product save(Product product) {
 		return productRepo.save(product);
+
+		
+	}
+
+	@Override
+	public void delete(Product pro) {
+		productRepo.delete(pro);
+		
+	}
+	
+	public Page<Product> findPage(int page, int size){
+		Pageable pageable = PageRequest.of(page, size);
+		return productRepo.findAll(pageable);
+	}
+
 	}
 
 	@Override
 	public Page<Product> findAll(Pageable pageable) {
 		return productRepo.findAll(pageable);
 	}
+
 
 
 }

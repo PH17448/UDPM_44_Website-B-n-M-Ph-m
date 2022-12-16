@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="row" style="height: 150px">
+			<div class="col-md-12"></div>
+		</div>
+		<form th:action="@{/admin/category/update/{id}(id=${category.id})}" th:object="${category}"
+			method="post">
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Name</div>
+							<input th:field="*{name}" class="form-control">
+						</div>
+						<!-- <div class="form-group col-sm-6">
+							<div>Category</div>
+							<select th:field="*{category}" class="form-control">
+								<option value="" />
+								<option th:each="cate : ${lstCate}" th:value="${cate.id}"
+									th:text="${cate.name}" />
+							</select>
+						</div> -->
+						<div class="form-group col-sm-6">
+							<div>Description</div>
+							<textarea th:field="*{description}" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="row"></div>
+					<br>
+					<div class="card-footer">
+						<button class="btn btn-primary">
+	            			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+			                <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+			                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+			              </svg>
+			            Update
+		        		</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+</html>
