@@ -12,6 +12,9 @@ public interface SupplierService {
 
 	Supplier findById(Integer id);
 
+	List<Supplier> findAll();
+
+}
 	void delete(Supplier result);
 	
 }

@@ -10,6 +10,13 @@ import datn.udpm.respository.SupplierRespository;
 import datn.udpm.service.SupplierService;
 @Service
 public class SupplierServiceImple implements SupplierService {
+	@Autowired
+	SupplierRespository supRepo;
+	
+	@Override
+	public List<Supplier> findAll() {
+		return supRepo.findAll();
+	}
 
 	@Autowired
 	SupplierRespository supplierRepo;

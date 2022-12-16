@@ -50,14 +50,16 @@
 			<ul class="nav flex-column ">
 				<p class="text-secondary fw-bold pt-3">STORE MANAGER</p>
 				<li class="nav-item pt-2"><a class="nav-link  text-white"
-					aria-current="page" href="#">Cate Management</a></li>
+					th:href="@{/admin/category}">Cate Management</a></li>
 				<li class="nav-item pt-2"><a class="nav-link text-white"
 					th:href="@{/admin/news}"> <i class="fa-solid fa-newspaper"></i> News Management
 				</a></li>
 				<li class="nav-item pt-2"><a class="nav-link text-white"
 					th:href="@{/admin/discount}"> <i class="fa-solid fa-tag"></i> Discount Management
 				</a></li>
-				<li class="nav-item pt-2"><a class="nav-link text-white">Products
+				<li class="nav-item pt-2"><a class="nav-link text-white" th:href="@{/admin/product}">Products
+						Management</a></li>
+				<li class="nav-item pt-2"><a class="nav-link text-white" th:href="@{/admin/supplier}">Supplier
 						Management</a></li>
 				<li class="nav-item pt-2"><a class="nav-link text-white"
 					th:href="@{/admin/supplier}"> <i class="fa-solid fa-database"></i> Supplier Management
