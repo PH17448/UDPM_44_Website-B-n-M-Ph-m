@@ -18,6 +18,10 @@ public interface OrderService {
 
 	List<Order> findAll();
 
+	Integer findByOrderNotApprove();
+
+	List<Order> getListNamePeople();
+
 
 
 }

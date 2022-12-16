@@ -16,6 +16,14 @@ public interface OrderRespository extends JpaRepository<Order,Integer> {
 	List<Order> findByEmail(String email);
 
 	
+	@Query("SELECT COUNT(o.id) FROM Order o WHERE o.status = 0 ")
+	Integer findByOrderNotApprove();
+
+
+	@Query("SELECT o FROM Order o WHERE o.status = 0")
+	List<Order> findListNameOrder();
+
+	
 	
 	
 	

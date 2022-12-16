@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/customer/layout/index :: dynamic(~{::main})}">
+
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+<body>
+	<main>
+		<div class="container">
+			<div class="row pt-3">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card mb-3"  style="max-width: 800px; border-radius: 0px " th:each="items ,state:${listNews}">
+								<div class="row g-0">
+									<div class="col-md-4">
+										<img th:src="@{|/images/${items.sumary}|}" class="img-fluid rounded-start" alt="">
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h5 class="card-title">[[${items.title}]]</h5>
+											<p class="card-text">[[${items.content}]]</p>
+											<p class="card-text">
+												<small class="text-muted">[[${items.author}]]</small>
+											</p>
+											<p class="card-text">
+												<small class="text-muted">[[${items.createDate}]]</small>
+											</p>
+										</div>
+										
+									</div>
+									
+								</div>
+								<a class="btn btn-primary">Xem thêm</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ">
+					<div class="container">
+						<div class="row">  
+						<div class="col-md-12">
+							aaa
+						</div>
+							<div class="col-md-12">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.923777934661!2d105.77097151440684!3d20.995692294283472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345348e1eaea4f%3A0x2f1aeef13dfd1b44!2zMTMyIE5nw7UgMjggUGjhu5EgxJDhuqFpIExpbmgsIFRydW5nIFbEg24sIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1670928364484!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" 
+								loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

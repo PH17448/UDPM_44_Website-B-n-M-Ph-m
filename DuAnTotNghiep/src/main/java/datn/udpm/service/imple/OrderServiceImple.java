@@ -60,6 +60,16 @@ public class OrderServiceImple implements OrderService {
 		return orderRepo.findAll();
 	}
 
+	@Override
+	public Integer findByOrderNotApprove() {
+		return orderRepo.findByOrderNotApprove();
+	}
+
+	@Override
+	public List<Order> getListNamePeople() {
+		return orderRepo.findListNameOrder();
+	}
+
 	
 
 	

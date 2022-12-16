@@ -13,9 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import datn.udpm.entity.Account;
 import datn.udpm.entity.Category;
 import datn.udpm.entity.News;
+import datn.udpm.entity.Order;
 import datn.udpm.service.AccountService;
 import datn.udpm.service.CategoryService;
 import datn.udpm.service.NewsService;
+import datn.udpm.service.OrderService;
 
 @Component
 public class GlobalInterceptor implements HandlerInterceptor {
@@ -24,7 +26,10 @@ public class GlobalInterceptor implements HandlerInterceptor {
 	CategoryService categoryService ;
 	@Autowired
 	AccountService accountService ;
-
+	
+	@Autowired
+	OrderService orderService; 
+	
 	@Autowired
 	NewsService newsService;
 	@Override
@@ -47,6 +52,15 @@ public class GlobalInterceptor implements HandlerInterceptor {
 		
 		List<News> listNew = newsService.findAll();
 		request.setAttribute("listNew", listNew);
+		
+		
+		Integer soLuongDonHangChuaDuyet = orderService.findByOrderNotApprove();
+		
+		request.setAttribute("count", soLuongDonHangChuaDuyet);
+		
+		List<Order> listOrderNotApprove = orderService.getListNamePeople();
+		
+		request.setAttribute("listOrder", listOrderNotApprove);
 		
 		
 	}
