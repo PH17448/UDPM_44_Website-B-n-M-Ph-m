@@ -16,7 +16,7 @@ public interface ProductService {
 
 	Product findById(Integer id);
 
-	void save(Product product);
+	Product save(Product product);
 
 	void delete(Product pro);
 	

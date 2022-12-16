@@ -34,8 +34,8 @@ public class ProductServiceImple implements ProductService {
 	}
 
 	@Override
-	public void save(Product product) {
-		productRepo.save(product);
+	public Product save(Product product) {
+		return productRepo.save(product);
 		
 	}
 

@@ -1,0 +1,102 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div class="row" style="height: 150px">
+			<div class="col-md-12"></div>
+		</div>
+		<form th:action="@{/admin/product/update/{id}(id=${product.id})}" th:object="${product}" method="post">
+			<div class="row">
+				<div class="col-sm-4 text-center">
+					<label for="image"> <img th:src="@{'/images/' + ${product.picture1}}" alt=""
+							style="max-width: 100%;">
+					</label>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Name</div>
+							<input th:field="*{name}" class="form-control">
+						</div>
+						<div class="form-group col-sm-6">
+							<div>Price</div>
+							<input th:field="*{price}" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Image</div>
+							<input type="file" id="image" th:field="*{picture1}" class="form-control">
+						</div>
+						<!-- <div class="form-group col-sm-6">
+							<div>Category</div>
+							<select th:field="*{subCategory}" class="form-control">
+								<option value="" />
+								<option th:each="cate : ${lstSub}" th:value="${cate.id}"
+									th:text="${cate.name}" />
+							</select>
+						</div> -->
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Create Date</div>
+							<input th:field="*{createDate}" type="datetime" class="form-control">
+						</div>
+						<div class="form-group col-sm-6">
+							<div>Available</div>
+							<div class="form-control">
+								<label class="radio-inline"> <input th:field="*{available}" type="radio"
+										name="available" value="true">Yes
+								</label> <label class="radio-inline"> <input th:field="*{available}" type="radio"
+										name="available" value="false">No
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!-- <div class="form-group col-sm-6">
+							<div>Discount</div>
+							<select th:field="*{discount}" class="form-control">
+								<option value="" />
+								<option th:each="dis : ${lstDis}" th:value="${dis.id}"
+									th:text="${dis.name}"></option>
+							</select>
+						</div> -->
+						<!-- <div class="form-group col-sm-6">
+							<div>Supplier</div>
+							<select th:field="*{supplier}" class="form-control">
+								<option value="" />
+								<option th:each="sup : ${lstSup}" th:value="${sup.id}"
+									th:text="${sup.companyName}" />
+							</select>
+						</div> -->
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Expire Date</div>
+							<input th:field="*{expireDate}" type="datetime" class="form-control">
+						</div>
+						<div class="form-group col-sm-6">
+							<div>Quantity</div>
+							<input th:field="*{quantity}" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>Description</div>
+							<textarea th:field="*{description}" class="form-control"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="card-footer">
+						<button class="btn btn-primary">
+							Update
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+
+</html>
