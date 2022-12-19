@@ -18,27 +18,22 @@ public class SupplierServiceImple implements SupplierService {
 		return supRepo.findAll();
 	}
 
-	@Autowired
-	SupplierRespository supplierRepo;
+	
+	
 	
 	@Override
-	public List<Supplier> findAll() {
-		return supplierRepo.findAll();
-	}
-
-	@Override
 	public Supplier save(Supplier supplier) {
-		return supplierRepo.save(supplier);
+		return supRepo.save(supplier);
 	}
 
 	@Override
 	public Supplier findById(Integer id) {
-		return supplierRepo.findById(id).get();
+		return supRepo.findById(id).get();
 	}
 
 	@Override
 	public void delete(Supplier result) {
-		supplierRepo.delete(result);
+		supRepo.delete(result);
 	}
 	
 }

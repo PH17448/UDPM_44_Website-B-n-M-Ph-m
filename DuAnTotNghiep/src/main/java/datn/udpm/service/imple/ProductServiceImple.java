@@ -51,12 +51,14 @@ public class ProductServiceImple implements ProductService {
 		return productRepo.findAll(pageable);
 	}
 
-	}
-
 	@Override
 	public Page<Product> findAll(Pageable pageable) {
+		
 		return productRepo.findAll(pageable);
 	}
+
+
+	
 
 
 

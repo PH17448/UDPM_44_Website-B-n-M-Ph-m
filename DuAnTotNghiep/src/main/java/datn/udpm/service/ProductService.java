@@ -1,12 +1,9 @@
 package datn.udpm.service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import org.springframework.data.domain.Page;
 
 import datn.udpm.entity.Product;
 
@@ -26,8 +23,7 @@ public interface ProductService {
 
 	void delete(Product pro);
 
-
-	
 	Page<Product> findPage(int page, int size);
+
 
 }
