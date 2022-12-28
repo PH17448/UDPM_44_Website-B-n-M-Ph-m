@@ -58,7 +58,7 @@ public class NewsAdminController {
 		result.setAuthor(news.getAuthor());
 		result.setSumary(news.getSumary());
 		result.setTitle(news.getTitle());
-		newsService.save(news);
+		newsService.save(result);
 		
 		return "redirect:/admin/news";
 	}

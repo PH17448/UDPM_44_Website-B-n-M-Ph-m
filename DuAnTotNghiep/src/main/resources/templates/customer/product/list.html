@@ -31,10 +31,12 @@
 										style="color: gray; height: 70px">[[${items.name}]]</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6">
+									<th:block th:unless="${items.discount.id == 8}">
+										<div class="col-md-6">
 										<strong style="text-decoration: line-through;">[[${items.price+items.price*items.discount.moneyLimit/100}]]
 											VND</strong>
 									</div>
+									</th:block>
 									<div class="col-md-6">
 										<strong class="text-danger">[[${items.price}]] VND</strong>
 									</div>
