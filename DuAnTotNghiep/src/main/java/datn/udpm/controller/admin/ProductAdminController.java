@@ -1,19 +1,16 @@
 package datn.udpm.controller.admin;
 
-import java.awt.print.Pageable;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import datn.udpm.entity.DiscountProduct;
 import datn.udpm.entity.Product;
@@ -75,9 +72,14 @@ public class ProductAdminController {
 	}
 	
 	@GetMapping("/admin/product/edit/{id}")
-	public String edit(@PathVariable("id") Integer id , Model model,
-			@ModelAttribute("product") Product product) {
-		product = proService.findById(id);
+	public String edit(@PathVariable("id") Integer id , Model model) {
+		List<SubCategory> lstSub = subService.findAll();
+		List<Supplier> lstSup = supService.findAll();
+		List<DiscountProduct> lstDis = disService.findAll();
+		Product product = proService.findById(id);
+		model.addAttribute("lstSub", lstSub);
+		model.addAttribute("lstSup", lstSup);
+		model.addAttribute("lstDis", lstDis);
 		model.addAttribute("product", product);
 		return "admin/product/edit";
 	}
@@ -85,12 +87,21 @@ public class ProductAdminController {
 	@PostMapping("/admin/product/update/{id}")
 	public String update(@PathVariable("id") Integer id ,@ModelAttribute("product") Product product) {
 		
-		Product pro = proService.findById(id);
-		product.setSubCategory(pro.getSubCategory());
-		product.setSupplier(pro.getSupplier());
-		product.setDiscount(pro.getDiscount());
-		product.setCreateDate(new Date());
-		proService.save(product);
+		Product result = proService.findById(id);
+		result.setSupplier(product.getSupplier());
+		result.setSubCategory(product.getSubCategory());
+		result.setDiscount(product.getDiscount());
+		result.setName(product.getName());
+		result.setPrice(product.getPrice());
+		result.setDescription(product.getDescription());
+		result.setPicture1(product.getPicture1());
+		result.setPicture2(null);
+		result.setCreateDate(new Date());
+		result.setAvailable(true);
+		result.setExpireDate(product.getExpireDate());
+		result.setQuantity(product.getQuantity());
+		result.setQuantitySold(0);
+		proService.save(result);
 		
 		return "redirect:/admin/product";
 	}

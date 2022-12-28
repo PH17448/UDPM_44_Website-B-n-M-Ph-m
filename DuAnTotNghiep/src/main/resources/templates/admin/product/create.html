@@ -32,8 +32,7 @@
 						</div>
 						<div class="form-group col-sm-6">
 							<div>Category</div>
-							<select th:field="*{subCategory}" class="form-control">
-								<option value="" />
+							<select th:field="*{subCategory}" class="form-select">
 								<option th:each="cate : ${lstSub}" th:value="${cate.id}"
 									th:text="${cate.name}" />
 							</select>
@@ -61,18 +60,16 @@
 					<div class="row">
 						<div class="form-group col-sm-6">
 							<div>Discount</div>
-							<select th:field="*{discount}" class="form-control">
-								<option value="" />
+							<select th:field="*{discount}" class="form-select">
 								<option th:each="dis : ${lstDis}" th:value="${dis.id}"
 									th:text="${dis.name}"></option>
 							</select>
 						</div>
 						<div class="form-group col-sm-6">
 							<div>Supplier</div>
-							<select th:field="*{supplier}" class="form-control">
-								<option value="" />
+							<select th:field="*{supplier}" class="form-select">
 								<option th:each="sup : ${lstSup}" th:value="${sup.id}"
-									th:text="${sup.companyName}" />
+									th:text="${sup.name}" />
 							</select>
 						</div>
 					</div>
