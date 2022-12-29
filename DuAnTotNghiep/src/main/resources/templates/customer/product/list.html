@@ -17,6 +17,9 @@
 						th:each="items: ${listProduct.content}">
 						<div class="container">
 							<div class="card-header">
+							<th:block th:unless="${items.discount.id == 1}">
+									<span class="bg-danger" style="border-radius: 5px 5px 5px 5px ;">[[${items.discount.name}]]</span>
+								</th:block>
 								<a class="text" th:href="@{|/product/detail/${items.id}|}">
 									<img th:src="@{|/images/${items.picture1}}|" alt="Avatar"
 									class="image" style="width: 100%">
@@ -31,7 +34,7 @@
 										style="color: gray; height: 70px">[[${items.name}]]</div>
 								</div>
 								<div class="row">
-									<th:block th:unless="${items.discount.id == 8}">
+									<th:block th:unless="${items.discount.id == 1}">
 										<div class="col-md-6">
 										<strong style="text-decoration: line-through;">[[${items.price+items.price*items.discount.moneyLimit/100}]]
 											VND</strong>

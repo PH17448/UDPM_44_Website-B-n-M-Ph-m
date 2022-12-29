@@ -15,8 +15,12 @@
 				<div class="row pt-5">
 					<div class="card col-md-3 p-2 border border-0"
 						th:each="items: ${listProductCate}">
+						
 						<div class="container">
 							<div class="card-header">
+								<th:block th:unless="${items.discount.id == 1}">
+									<div class="row"><span class="bg-danger">[[${items.discount.name}]]</span></div>
+								</th:block>
 								<a class="text" th:href="@{|/product/detail/${items.id}|}">
 									<img th:src="@{|/images/${items.picture1}}|" alt="Avatar"
 									class="image" style="width: 100%">
@@ -31,7 +35,7 @@
 										style="color: gray; height: 70px">[[${items.name}]]</div>
 								</div>
 								<div class="row">
-								<th:block th:unless="${items.discount.id == 8}">
+								<th:block th:unless="${items.discount.id == 1}">
 									<div class="col-md-6">
 										<strong style="text-decoration: line-through;">[[${items.price+items.price*items.discount.moneyLimit/100}]]
 											VND</strong>
@@ -46,7 +50,7 @@
 						</div>
 						<div class="card-footer">
 							<a th:href="@{|/product/detail/${items.id}|}"
-								class="btn btn-outline-success btn-sm">Chi tiết</a>
+								class="btn btn-outline-success btn-sm">Chi tiáº¿t</a>
 						</div>
 					</div>
 				</div>
